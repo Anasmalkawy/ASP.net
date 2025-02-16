@@ -1,0 +1,140 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<main>
+    <!-- heading -->
+    <div class="heading">
+        <div class="heading-home">
+            <i class='bx bx-home'></i>
+            <span>/ حسابي </span>
+        </div>
+        <div class="heading-home">
+            <span>طلباتي</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!--============== start aside-dashboard ============-->
+        <aside class="aside-dashboard">
+            <div class="account-section">
+                <h2 class="account-title">حسابي</h2>
+            </div>
+            <div class="account-links">
+                <div class="account-link   ">
+                    <i class='bx bx-user'></i>
+                    <a href="profile-dashboard.html" class="dashboard-link ">لوحة التحكم</a>
+                </div>
+                <div class="account-link active">
+                    <i class='bx bxs-truck'></i>
+                    <a href="profile-orders.html" class="orders-link">طلباتي</a>
+                </div>
+                <div class="account-link">
+                    <i class='bx bxs-lock-alt'></i>
+                    <a href="profile-password.html" class="password-link">تغيير كلمة المرور</a>
+                </div>
+                <div class="account-link">
+                    <i class='bx bx-log-out'></i>
+                    <a href="index.html" class="logout-link">خروج</a>
+                </div>
+            </div>
+
+        </aside>
+        <!--=============== end aside-dashboard ===================-->
+        <!--============= start dashboard ============-->
+        <div class="dashboard">
+            <!--------- start order-status-------- -->
+            <div class="order-status">
+                <div class="status-step">
+                    <i class='bx bxs-hourglass-top r'></i>
+                    <span style="color: red;">جاري التجهيز</span>
+                    <p>12.10.22 ديسمبر</p>
+                </div>
+                <div class="status-divider">
+                    <span style="color: red;"> .............. </span>
+                </div>
+                <div class="status-step">
+                    <i class='bx bxs-truck y'></i>
+                    <span style="color: #FFC107;">في الطريق</span>
+                    <p>12.10.22 ديسمبر</p>
+                </div>
+                <div class="status-divider">
+                    <span style="color: #FFC107;"> ............. </span>
+                </div>
+                <div class="status-step">
+                    <i class='bx bx-check-double b'></i>
+                    <span style="color: blue;">تم الوصول</span>
+                    <p>12.10.22 ديسمبر</p>
+                </div>
+                <div class="status-divider">
+                    <span style="color: blue;"> ............ </span>
+                </div>
+                <div class="status-step">
+                    <i class='bx bxs-hand g'></i>
+                    <span style="color: green;">تم الاستلام</span>
+                    <p>12.10.22 ديسمبر</p>
+                </div>
+            </div>
+            <!--------- end order-status-------- -->
+
+            <h3 class="dashboard-title ">طلباتي</h3>
+
+            <!----------- start orders-table ------------->
+            <div class="orders-table">
+                <!-- table-header -->
+                <div class="table-header">
+                    <div class="cell">#</div>
+                    <div class="cell">صورة</div>
+                    <div class="cell">اسم المنتج</div>
+                    <div class="cell">السعر</div>
+                    <div class="cell">الكمية</div>
+                    <div class="cell">الاجمالى</div>
+                </div>
+                <div class=""><hr></div>
+                <div class="table-row">
+                    <div class="cell">1</div>
+                    <div class="cell cart-cell cart-image">
+                        <img src="img/products/electronic1.jpg" alt="صورة المنتج">
+                    </div>
+                    <div class="cell cart-cell cart-product-name">
+                        <a href=""> كاميرا صغيرة الحجم كول بيكس B500 بدقة 16 ميجابكسل</a>
+                    </div>
+                    <div class="cell cart-cell cart-price">$99.99</div>
+                    <div class="cell cart-cell cart-quantity">2</div>
+                    <div class="cell cart-cell cart-total">$199.99</div>
+                </div>
+                <div class=""><hr></div>
+                <!-- تكرار هنا للمزيد من المنتجات -->
+                <div class="table-row">
+                    <div class="cell">2</div>
+                    <div class="cell cart-cell cart-image">
+                        <img src="img/products/electronic2.jpg" alt="صورة المنتج">
+                    </div>
+                    <div class="cell cart-cell cart-product-name">
+                        <a href=""> كاميرا صغيرة الحجم كول بيكس B500 بدقة 16 ميجابكسل</a>
+                    </div>
+                    <div class="cell cart-cell cart-price">$99.99</div>
+                    <div class="cell cart-cell cart-quantity">2</div>
+                    <div class="cell cart-cell cart-total">$199.99</div>
+                </div>
+                <div class=""><hr></div>
+                <div class="table-row">
+                    <div class="cell">1</div>
+                    <div class="cell cart-cell cart-image">
+                        <img src="~img/products/products-013.png" alt="صورة المنتج">
+                    </div>
+                    <div class="cell cart-cell cart-product-name">
+                        <a href=""> كاميرا صغيرة الحجم كول بيكس B500 بدقة 16 ميجابكسل</a>
+                    </div>
+                    <div class="cell cart-cell cart-price">$99.99</div>
+                    <div class="cell cart-cell cart-quantity">2</div>
+                    <div class="cell cart-cell cart-total">$199.99</div>
+                </div>
+                <div class=""><hr></div>
+            </div>
+            <!----------- end orders-table ------------->
+        </div>
+        <!--============= start dashboard ============-->
+    </div>
+</main>

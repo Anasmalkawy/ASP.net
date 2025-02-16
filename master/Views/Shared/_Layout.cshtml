@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="~/css/style.css" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - master</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/master.styles.css" asp-append-version="true" />
+</head>
+<body>
+	<nav class="top-header">
+		<div class="container">
+			<div class="right-nav">
+				<span> العروض وفر حتي 45% خصم اليوم</span>
+				<div class="contact-info">
+					<i class='bx bx-headphone'></i>
+					<span>+970 555 4342</span>
+				</div>
+			</div>
+			<div class="left-nav">
+				<div class="login-button">
+					<i class='bx bx-log-in-circle'></i>
+					<a href="register.html">تسجيل / الدخول</a>
+				</div>
+				<div class="account-button">
+					<i class='bx bx-user'></i>
+					<a href="profile-dashboard.html">حسابي</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- bottom-header -->
+	<nav class="bottom-header">
+		<div class="container">
+			<!--logo-->
+			<!-- <a href="" class="logo"><img src="img/logo.png" alt=""></a> -->
+			<a href="" class="logo"><i class='bx bx-laptop'></i></a>
+			<nav class="navbar">
+				<a class="nav-link text-dark" asp-area="" asp-controller="master" asp-action="index">home page</a>
+				<a class="nav-link text-dark" asp-area="" asp-controller="master" asp-action="ask">ask</a>
+				<a class="nav-link text-dark" asp-area="" asp-controller="master" asp-action="about">about</a>
+				<a class="nav-link text-dark" asp-area="" asp-controller="master" asp-action="contact">contact</a>
+				<a class="nav-link text-dark" asp-area="" asp-controller="master" asp-action="profile">profile</a>
+
+
+				<a href="shop.html">المنتجات</a>
+				<a href="blog.html">مدونة</a>
+				<a href="shortcode.html">من نحن</a>
+				<a href="Connect.html">تواصل معنا</a>
+				<a href="faq.html">الاسئلة الشائعة</a>
+			</nav>
+			<div class="icon-container">
+				<div class="whishlist-count">2</div>
+				<a href="whishlist.html"><i class='bx bx-heart'></i></a>
+				<div class="cart-count" id="cart-count">4</div>
+				<a href="cart.html" id="add-to-cart-global"><i class='bx bxs-shopping-bags'></i></a>
+				<a href=""><i class='bx bx-search-alt'></i></a>
+			</div>
+
+		</div>
+	</nav>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="footer">
+		<div class="continer-footer">
+			<div class="rew-footer">
+				<!-- col-footer 1 -->
+				<div class="col-footer">
+					<a href="#" class="logo"><img src="img/logo.png" alt=""></a>
+					<p>
+						لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر.
+					</p>
+					<div class="social-links">
+						<i class='bx bxl-instagram-alt'></i>
+						<i class='bx bxl-twitter'></i>
+						<i class='bx bxl-tiktok'></i>
+						<i class='bx bxl-youtube'></i>
+						<i class='bx bxl-linkedin'></i>
+
+					</div>
+				</div>
+				<!-- col-footer 1 -->
+				<div class="col-footer">
+					<h4>روابط سريعه</h4>
+					<ul>
+						<li><a href="">الرئيسة</a></li>
+						<li><a href="">من نحن</a></li>
+						<li><a href="">تواصل معنا</a></li>
+						<li><a href="">الشروط والأحكام</a></li>
+						<li><a href="">الأسئلة الشائعة</a></li>
+					</ul>
+				</div>
+
+				<!-- col-footer 1 -->
+				<div class="col-footer">
+					<h4>متابعه الحساب</h4>
+					<ul>
+						<li><a href="">طلباتى</a></li>
+						<li><a href="">متابعه الطلبات</a></li>
+						<li><a href="">الإرجاع والاستبدال</a></li>
+						<li><a href="">حسابى</a></li>
+						<li><a href="">معلوماتى</a></li>
+					</ul>
+				</div>
+
+				<!-- col-footer 1 -->
+				<div class="col-footer">
+					<h4>ابقى على تواصل</h4>
+					<div class="contact-details">
+						<div class="contact-detail">
+							<i class='bx bxs-map'></i>
+							<span>فلسطين, غزة </span>
+						</div>
+						<div class="contact-detail">
+							<i class='bx bxs-envelope'></i>
+							<span>mhmod@gmail.com </span>
+						</div>
+						<div class="contact-detail">
+							<i class='bx bxs-phone-call'></i>
+							<span>+ 970 546 6345 </span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copy">
+			<p> &copy;   جميع الحقوق محفوظة. صنع بواسطة محمود الشاعر ❤️</p>
+		</div>
+	</footer>
+	<script src="~/js/main.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
