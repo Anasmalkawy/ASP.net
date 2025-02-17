@@ -1,0 +1,37 @@
+﻿@{
+	Layout = "~/Views/Shared/lay1.cshtml";
+}
+
+@{
+	string[] name = { "Lenovo", "Toshiba", "Dell" };
+	string[] age = { "25", "73", "12" };
+	string[] mail = { "Lenovo@gmail.com", "Toshiba@gmail.com", "Dell@gmail.com" };
+
+
+}
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+
+	<tbody>
+		@for (int i = 0; i < name.Length; i++)
+		{
+            <tr>
+                <th scope="row">@i</th>
+                <td>@name[i]</td>
+                <td>@age[i]</td>
+                <td>@mail[i]</td>
+            </tr>
+        }
+        </tbody>
+    
+
+</table>
