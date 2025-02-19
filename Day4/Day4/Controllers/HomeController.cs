@@ -60,7 +60,7 @@ namespace Day4.Controllers
            string npass = HttpContext.Session.GetString("pass");
             if ( nmail== log1 && npass == log2)
             {
-                return RedirectToAction("index", "Home");
+                return RedirectToAction("Index", "Home2");
 
             }
             else
@@ -71,23 +71,7 @@ namespace Day4.Controllers
         }
 
 
-        public IActionResult profile()
-        {
-            string nmail = HttpContext.Session.GetString("mail");
-            string npass = HttpContext.Session.GetString("pass"); 
-            string nfname = HttpContext.Session.GetString("fname");
-            string nlname = HttpContext.Session.GetString("lname");
 
-
-            TempData["data0"] = nfname;
-            TempData["data1"] = nlname;
-            TempData["data2"] = nmail;
-            TempData["data3"] = npass;
-
-
-            return View();
-
-        }
 
 
 
