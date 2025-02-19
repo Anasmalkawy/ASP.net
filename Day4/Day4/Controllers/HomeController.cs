@@ -29,23 +29,66 @@ namespace Day4.Controllers
             return View();
         }
 
+
         [HttpPost]
         public IActionResult Reg(string fname,string lname ,string mail,string pass)
         {
-            TempData["data0"] = fname;
-            TempData["data1"] = lname;
-            TempData["data2"] = mail;
-            TempData["data3"] = pass;
+            HttpContext.Session.SetString("fname", fname);
+            HttpContext.Session.SetString("lname", lname);
+            HttpContext.Session.SetString("mail", mail);
+            HttpContext.Session.SetString("pass", pass);
+
+            //TempData["data01"] = fname;
+            //TempData["data1"] = lname;
+            //TempData["data2"] = mail;
+            //TempData["data3"] = pass;
 
             return RedirectToAction("Log");
         }
 
-   
+        [HttpGet]
         public IActionResult Log()
         {
+            return View();
+
+        }
+
+        [HttpPost]
+        public IActionResult Log_ok(string log1, string log2)
+        {
+           string nmail= HttpContext.Session.GetString("mail");
+           string npass = HttpContext.Session.GetString("pass");
+            if ( nmail== log1 && npass == log2)
+            {
+                return RedirectToAction("index", "Home");
+
+            }
+            else
+            {
+                return View();
+
+            }
+        }
+
+
+        public IActionResult profile()
+        {
+            string nmail = HttpContext.Session.GetString("mail");
+            string npass = HttpContext.Session.GetString("pass"); 
+            string nfname = HttpContext.Session.GetString("fname");
+            string nlname = HttpContext.Session.GetString("lname");
+
+
+            TempData["data0"] = nfname;
+            TempData["data1"] = nlname;
+            TempData["data2"] = nmail;
+            TempData["data3"] = npass;
+
 
             return View();
+
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

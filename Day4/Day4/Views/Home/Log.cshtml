@@ -1,14 +1,27 @@
 ﻿
 
-<form method="post">
-<h1></h1>
-<h1></h1>
+<form method="post" action="~/Home/Log_ok">
+    <!-- Email input -->
+    <div style=" height:100px;"></div>
+
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="email" id="form2Example1" class="form-control" name="log1" />
+        <label class="form-label" for="form2Example1">Email address</label>
+    </div>
+
+    <!-- Password input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="password" id="form2Example2" class="form-control" name="log2"/>
+        <label class="form-label" for="form2Example2">Password</label>
+    </div>
+    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
 
 
-
-    <h1> your First name: @TempData["data0"]</h1>
-    <h1>your Last name: @TempData["data1"]</h1>
-    <h1> your email: @TempData["data2"]</h1>
-    <h1>your password: @TempData["data3"]</h1>
+    <!-- Submit button -->
 
 </form>
+<h1></h1>
+<h1></h1>
+
+
+
