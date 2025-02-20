@@ -28,20 +28,24 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-">
 					<li>
 
-						@if(TempData["hide"]!=null)
+						@if (TempData["hide"] != null)
 						{
 							<a asp-area="" asp-controller="Home2" asp-action="profile" class="nav-link">
 								<img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" />
 							</a>
-						}else{
+							<a asp-area="" asp-controller="Home" asp-action="logout" class="nav-link">logout</a>
+
+						}
+						else
+						{
 							<a asp-area="" asp-controller="Home" asp-action="Reg" class="nav-link">REG</a>
 							<a asp-area="" asp-controller="Home" asp-action="Log" class="nav-link">LOG</a>
 						}
-						
 
 
 
-						
+
+
 
 
 
@@ -62,13 +66,11 @@
 
 					<!-- Notifications -->
 					<div class="dropdown">
-
 					</div>
 					<!-- Avatar -->
 					<div class="dropdown">
-                        
+
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-							
 						</ul>
 					</div>
 				</div>

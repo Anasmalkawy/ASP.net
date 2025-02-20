@@ -11,6 +11,8 @@ namespace Day4.Controllers
         }
         public IActionResult profile()
         {
+            TempData["hide"] = HttpContext.Session.GetString("mail");
+
             string nmail = HttpContext.Session.GetString("mail");
             string npass = HttpContext.Session.GetString("pass");
             string nfname = HttpContext.Session.GetString("fname");

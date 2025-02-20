@@ -57,7 +57,7 @@ namespace Day4.Controllers
         [HttpPost]
         public IActionResult Log_ok(string log1, string log2, string check)
         {
-            TempData["hide"]= HttpContext.Session.GetString("mail");
+            TempData["hide"] = HttpContext.Session.GetString("mail");
             string nmail = HttpContext.Session.GetString("mail");
             string npass = HttpContext.Session.GetString("pass");
 
@@ -87,7 +87,11 @@ namespace Day4.Controllers
         }
 
 
-
+        public IActionResult logout()
+        {
+           HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home2");
+        }
 
 
 
