@@ -25,18 +25,33 @@
 			<!-- Collapsible wrapper -->
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<!-- Left links -->
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-@* 					<li class="nav-item">
-						<a asp-area="" asp-controller="Home" asp-action="Reg" class="nav-link">REG</a>
-						<a asp-area="" asp-controller="Home" asp-action="Log" class="nav-link">LOG</a>
+				<ul class="navbar-nav me-auto mb-2 mb-lg-">
+					<li>
+
+						@if(TempData["hide"]!=null)
+						{
+							<a asp-area="" asp-controller="Home2" asp-action="profile" class="nav-link">
+								<img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" />
+							</a>
+						}else{
+							<a asp-area="" asp-controller="Home" asp-action="Reg" class="nav-link">REG</a>
+							<a asp-area="" asp-controller="Home" asp-action="Log" class="nav-link">LOG</a>
+						}
+						
+
+
+
+						
+
+
+
+
+
+
+
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Team</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Projects</a>
-					</li> *@
 				</ul>
+
 				<!-- Left links -->
 				<!-- Right elements -->
 				<div class="d-flex align-items-center justify-content-start">
@@ -47,37 +62,13 @@
 
 					<!-- Notifications -->
 					<div class="dropdown">
-						<a data-mdb-dropdown-init class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-							<i class="fas fa-bell text-white"></i>
-							<span class="badge rounded-pill badge-notification bg-danger">1</span>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-							<li>
-								<a class="dropdown-item" href="#">Some news</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Another news</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</li>
-						</ul>
+
 					</div>
 					<!-- Avatar -->
 					<div class="dropdown">
-                        <a asp-area="" asp-controller="Home2" asp-action="profile" class="nav-link">
-							<img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" />
-						</a>
+                        
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-							<li>
-								<a class="dropdown-item" href="#">My profile</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Settings</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="#">Logout</a>
-							</li>
+							
 						</ul>
 					</div>
 				</div>

@@ -11,6 +11,27 @@
 
 <h1>profile</h1>
 
+<form method="post" action="~/Home2/new_profile">
+    <!-- Email input -->
+    <div style=" height:100px;"></div>
+
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="number" id="form2Example1" class="form-control" name="log3" />
+        <label class="form-label" for="form2Example1">phone number</label>
+    </div>
+
+    <!-- Password input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="text" id="form2Example2" class="form-control" name="log4" />
+        <label class="form-label" for="form2Example2">loction</label>
+    </div>
+    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">update info</button>
+
+
+    <!-- Submit button -->
+
+</form>
+
 <section style="background-color: #eee;">
     <div class="container py-5">
         <div class="row">
@@ -99,21 +120,22 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">Password</p>
+                                <p class="mb-0">phone</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">@TempData["data3"]</p>
+                                <p class="text-muted mb-0">@TempData["phone"]</p>
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">Address</p>
+                                <p class="mb-0">loction</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                <p class="text-muted mb-0">@TempData["loction"]</p>
                             </div>
                         </div>
+                        <hr>
                     </div>
                 </div>
                 <div class="row">

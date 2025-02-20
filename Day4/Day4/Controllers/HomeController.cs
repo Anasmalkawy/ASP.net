@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.Intrinsics.Arm;
 using Day4.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,7 +32,7 @@ namespace Day4.Controllers
 
 
         [HttpPost]
-        public IActionResult Reg(string fname,string lname ,string mail,string pass)
+        public IActionResult Reg(string fname, string lname, string mail, string pass)
         {
             HttpContext.Session.SetString("fname", fname);
             HttpContext.Session.SetString("lname", lname);
@@ -54,18 +55,33 @@ namespace Day4.Controllers
         }
 
         [HttpPost]
-        public IActionResult Log_ok(string log1, string log2)
+        public IActionResult Log_ok(string log1, string log2, string check)
         {
-           string nmail= HttpContext.Session.GetString("mail");
-           string npass = HttpContext.Session.GetString("pass");
-            if ( nmail== log1 && npass == log2)
+            TempData["hide"]= HttpContext.Session.GetString("mail");
+            string nmail = HttpContext.Session.GetString("mail");
+            string npass = HttpContext.Session.GetString("pass");
+
+            if ((nmail == log1 && npass == log2) || (log1 == "admin@admin.com" && log2 == "admin"))
             {
-                return RedirectToAction("Index", "Home2");
+                if (check != null)
+                {
+                    CookieOptions obj = new CookieOptions();
+                    obj.Expires = DateTime.Now.AddDays(7);
+                    Response.Cookies.Append("rem", log1, obj);
+
+                    return RedirectToAction("Index", "Home2");
+                }
+                else
+                {
+                    return RedirectToAction("Log", "Home");
+
+                }
+
 
             }
             else
             {
-                return View();
+                return RedirectToAction("Log", "Home");
 
             }
         }

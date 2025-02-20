@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Xml.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Day4.Controllers
 {
@@ -24,6 +25,14 @@ namespace Day4.Controllers
 
             return View();
 
+        }
+        [HttpPost]
+        public IActionResult new_profile(string log3 , string log4)
+        {
+
+            TempData["loction"] = log4;
+            TempData["phone"] = log3;
+            return RedirectToAction("profile" , "Home2");
         }
     }
 }
