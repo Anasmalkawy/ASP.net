@@ -24,28 +24,19 @@ namespace day6.Controllers
         }
 
 
-
-
-
-
        public IActionResult Create()
         {
             return View();
         }
+
+
 
         [HttpPost]
         public IActionResult Create( Info info)
         {
                 _context.Add(info);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
-            
+                return RedirectToAction("Index");  
         }
-
-
-
-
-
-
     }
 }
