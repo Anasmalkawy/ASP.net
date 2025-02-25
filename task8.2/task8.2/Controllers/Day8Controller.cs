@@ -105,6 +105,8 @@ namespace task8._2.Controllers
                     else if (user1.Rolee == "admin")
                     {
                         HttpContext.Session.SetString("type", user1.Rolee);
+                        HttpContext.Session.SetString("name", user1.Name);
+                        HttpContext.Session.SetString("mail", user1.Mail);
 
                         return RedirectToAction(nameof(adminindex) );
                     }

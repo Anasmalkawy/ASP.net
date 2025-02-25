@@ -13,13 +13,14 @@
 			Name
 		</dt>
 		<dd class="col-sm-10">
-			@TempData["name"]
+			@Context.Session.GetString("name")
 		</dd>
 		<dt class="col-sm-2">
 			mail
 		</dt>
 		<dd class="col-sm-10">
-			@TempData["mail"]
+			@Context.Session.GetString("mail")
+
 		</dd>
 
 	</dl>

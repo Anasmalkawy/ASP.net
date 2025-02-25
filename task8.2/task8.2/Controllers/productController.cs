@@ -26,7 +26,7 @@ namespace task8._2.Controllers
             return View(_context.Users.ToList());
         }
 
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
             TempData["info"] = HttpContext.Session.GetString("type");
             TempData["name"] = HttpContext.Session.GetString("name");
