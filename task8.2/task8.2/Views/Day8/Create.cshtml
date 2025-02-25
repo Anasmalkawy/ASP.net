@@ -1,0 +1,67 @@
+﻿@model task8._2.Models.Day8
+
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<section class="">
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+        <div class="container">
+            <div class="row gx-lg-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="my-5 display-3 fw-bold ls-tight">
+                        The best offer <br />
+                        <span class="text-primary">for your business</span>
+                    </h1>
+                    <p style="color: hsl(217, 10%, 50.8%)">
+                        Join us today and grow your business like never before.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body py-5 px-md-5">
+                            <form asp-action="Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                
+                                    <div class="mb-4">
+                                        <label asp-for="Name" class="form-label">First name</label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                
+
+                                <div class="mb-4">
+                                    <label asp-for="Mail" class="form-label">Email address</label>
+                                    <input asp-for="Mail" class="form-control" />
+                                    <span asp-validation-for="Mail" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label asp-for="Password" class="form-label">Password</label>
+                                    <input asp-for="Password" type="password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-check d-flex justify-content-center mb-4">
+                                    <input class="form-check-input me-2" type="checkbox" id="subscribe" />
+                                    <label class="form-check-label" for="subscribe">
+                                        Subscribe to our newsletter
+                                    </label>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

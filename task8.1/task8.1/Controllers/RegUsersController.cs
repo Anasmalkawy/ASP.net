@@ -21,22 +21,29 @@ namespace task8._1.Controllers
 
 
 
-      
+
         public IActionResult Create()
         {
             return View();
         }
+
+
         [HttpPost]
-        public IActionResult Create(RegUser regUser)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(RegUser regUser)
         {
+            if (ModelState.IsValid)
+            {
                 _context.Add(regUser);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Log");
+            }
+            else
+            {
+                ViewBag.error = "data is not valid";
+                return View();
+            }
         }
-
-
-
-
 
         public IActionResult Log()
         {
@@ -46,9 +53,17 @@ namespace task8._1.Controllers
         [HttpPost]
         public IActionResult Log(RegUser regUser)
         {
+
             var user = _context.RegUsers.FirstOrDefault(u => u.Mail == regUser.Mail && u.Pasword == regUser.Pasword);
-            TempData["UserName"] = user.Name;
-            return RedirectToAction("Home");
+            if (user != null)
+            {
+                TempData["UserName"] = user.Name;
+                return RedirectToAction("Home");
+            }
+            else
+            {
+                return RedirectToAction("Log");
+            }
         }
 
 
