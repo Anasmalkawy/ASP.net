@@ -54,7 +54,6 @@ namespace task8._1.Controllers
 
         public IActionResult Home()
         {
-            ViewBag.UserName = TempData["UserName"];
             return View();
         }
 
