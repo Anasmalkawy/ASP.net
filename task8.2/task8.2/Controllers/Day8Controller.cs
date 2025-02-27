@@ -28,7 +28,6 @@ namespace task8._2.Controllers
 
         public IActionResult Index()
         {
-            TempData["info"] = HttpContext.Session.GetString("type");
 
             return View();
         }
@@ -37,7 +36,6 @@ namespace task8._2.Controllers
         {
 
             var users = _context.Day8s.ToList();
-            TempData["info"] = HttpContext.Session.GetString("type");
             return View(users);
         }
 
@@ -49,7 +47,6 @@ namespace task8._2.Controllers
 
         public IActionResult Create()
         {
-            TempData["info"] = HttpContext.Session.GetString("type");
 
 
 

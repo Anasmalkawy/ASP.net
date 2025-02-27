@@ -5,96 +5,97 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using task8._2.Models;
+using days.Models;
 
-namespace task8._2.Controllers
+namespace days.Controllers
 {
-    public class UserController : Controller
+    public class TaskksController : Controller
     {
         private readonly MyDbContext _context;
 
-        public UserController(MyDbContext context)
+        public TaskksController(MyDbContext context)
         {
             _context = context;
         }
 
-        // GET: User
+        // GET: Taskks
         public async Task<IActionResult> Index()
         {
-
-
-            return View(await _context.Day8s.ToListAsync());
+            var myDbContext = _context.Taskks.Include(t => t.Employee);
+            return View(await myDbContext.ToListAsync());
         }
 
-        // GET: User/Details/5
+        // GET: Taskks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-
             if (id == null)
             {
                 return NotFound();
             }
 
-            var day8 = await _context.Day8s
+            var taskk = await _context.Taskks
+                .Include(t => t.Employee)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (day8 == null)
+            if (taskk == null)
             {
                 return NotFound();
             }
 
-            return View(day8);
+            return View(taskk);
         }
 
-        // GET: User/Create
+        // GET: Taskks/Create
         public IActionResult Create()
         {
-
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id");
             return View();
         }
 
-        // POST: User/Create
+        // POST: Taskks/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Mail,Password,Rolee")] Day8 day8)
+        public async Task<IActionResult> Create([Bind("Id,TaskName,StartDate,EndDate,EmployeeId")] Taskk taskk)
         {
-
             if (ModelState.IsValid)
             {
-                _context.Add(day8);
+                _context.Add(taskk);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(day8);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id", taskk.EmployeeId);
+            return View(taskk);
         }
 
-        // GET: User/Edit/5
+        // GET: Taskks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-
             if (id == null)
             {
+
+                
+                =]
                 return NotFound();
             }
 
-            var day8 = await _context.Day8s.FindAsync(id);
-            if (day8 == null)
+            var taskk = await _context.Taskks.FindAsync(id);
+            if (taskk == null)
             {
                 return NotFound();
             }
-            return View(day8);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id", taskk.EmployeeId);
+            return View(taskk);
         }
 
-        // POST: User/Edit/5
+        // POST: Taskks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Mail,Password,Rolee")] Day8 day8)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,TaskName,StartDate,EndDate,EmployeeId")] Taskk taskk)
         {
-
-            if (id != day8.Id)
+            if (id != taskk.Id)
             {
                 return NotFound();
             }
@@ -103,12 +104,12 @@ namespace task8._2.Controllers
             {
                 try
                 {
-                    _context.Update(day8);
+                    _context.Update(taskk);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!Day8Exists(day8.Id))
+                    if (!TaskkExists(taskk.Id))
                     {
                         return NotFound();
                     }
@@ -119,48 +120,47 @@ namespace task8._2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(day8);
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Id", taskk.EmployeeId);
+            return View(taskk);
         }
 
-        // GET: User/Delete/5
+        // GET: Taskks/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-
-
             if (id == null)
             {
                 return NotFound();
             }
 
-            var day8 = await _context.Day8s
+            var taskk = await _context.Taskks
+                .Include(t => t.Employee)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (day8 == null)
+            if (taskk == null)
             {
                 return NotFound();
             }
 
-            return View(day8);
+            return View(taskk);
         }
 
-        // POST: User/Delete/5
+        // POST: Taskks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-
-            var day8 = await _context.Day8s.FindAsync(id);
-            if (day8 != null)
+            var taskk = await _context.Taskks.FindAsync(id);
+            if (taskk != null)
             {
-                _context.Day8s.Remove(day8);
+                _context.Taskks.Remove(taskk);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool Day8Exists(int id)
+        private bool TaskkExists(int id)
         {
-            return _context.Day8s.Any(e => e.Id == id);
+            return _context.Taskks.Any(e => e.Id == id);
         }
     }
 }

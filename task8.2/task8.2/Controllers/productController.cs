@@ -20,17 +20,13 @@ namespace task8._2.Controllers
 
         public IActionResult Index()
         {
-            TempData["info"] = HttpContext.Session.GetString("type");
-            TempData["name"] = HttpContext.Session.GetString("name");
-            TempData["mail"] = HttpContext.Session.GetString("mail");
+
             return View(_context.Users.ToList());
         }
 
         public IActionResult Details(int id)
         {
-            TempData["info"] = HttpContext.Session.GetString("type");
-            TempData["name"] = HttpContext.Session.GetString("name");
-            TempData["mail"] = HttpContext.Session.GetString("mail");
+
             var user = _context.Users.Find(id);
 
 
@@ -40,9 +36,7 @@ namespace task8._2.Controllers
 
         public IActionResult Create()
         {
-            TempData["info"] = HttpContext.Session.GetString("type");
-            TempData["name"] = HttpContext.Session.GetString("name");
-            TempData["mail"] = HttpContext.Session.GetString("mail");
+
             return View();
 
         }
@@ -61,9 +55,6 @@ namespace task8._2.Controllers
 
         public IActionResult Edit(int id)
         {
-            TempData["info"] = HttpContext.Session.GetString("type");
-            TempData["name"] = HttpContext.Session.GetString("name");
-            TempData["mail"] = HttpContext.Session.GetString("mail");
 
 
             var user = _context.Users.Find(id);
@@ -76,9 +67,7 @@ namespace task8._2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, User user)
         {
-            TempData["info"] = HttpContext.Session.GetString("type");
-            TempData["name"] = HttpContext.Session.GetString("name");
-            TempData["mail"] = HttpContext.Session.GetString("mail");
+
             _context.Update(user);
             _context.SaveChangesAsync();
 
@@ -88,9 +77,7 @@ namespace task8._2.Controllers
 
         public IActionResult Delete(int id)
         {
-            TempData["info"] = HttpContext.Session.GetString("type");
-            TempData["name"] = HttpContext.Session.GetString("name");
-            TempData["mail"] = HttpContext.Session.GetString("mail");
+
 
             var user = _context.Users.Find(id);
             _context.Users.Remove(user);

@@ -5,96 +5,89 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using task8._2.Models;
+using days.Models;
 
-namespace task8._2.Controllers
+namespace days.Controllers
 {
-    public class UserController : Controller
+    public class ManagersController : Controller
     {
         private readonly MyDbContext _context;
 
-        public UserController(MyDbContext context)
+        public ManagersController(MyDbContext context)
         {
             _context = context;
         }
 
-        // GET: User
+        // GET: Managers
         public async Task<IActionResult> Index()
         {
-
-
-            return View(await _context.Day8s.ToListAsync());
+            return View(await _context.Managers.ToListAsync());
         }
 
-        // GET: User/Details/5
+        // GET: Managers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-
             if (id == null)
             {
                 return NotFound();
             }
 
-            var day8 = await _context.Day8s
+            var manager = await _context.Managers
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (day8 == null)
+            if (manager == null)
             {
                 return NotFound();
             }
 
-            return View(day8);
+            return View(manager);
         }
 
-        // GET: User/Create
+        // GET: Managers/Create
         public IActionResult Create()
         {
-
             return View();
         }
 
-        // POST: User/Create
+        // POST: Managers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Mail,Password,Rolee")] Day8 day8)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Manager manager)
         {
-
             if (ModelState.IsValid)
             {
-                _context.Add(day8);
+                _context.Add(manager);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(day8);
+            return View(manager);
         }
 
-        // GET: User/Edit/5
+        // GET: Managers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-
             if (id == null)
             {
                 return NotFound();
             }
 
-            var day8 = await _context.Day8s.FindAsync(id);
-            if (day8 == null)
+            var manager = await _context.Managers.FindAsync(id);
+            if (manager == null)
             {
                 return NotFound();
             }
-            return View(day8);
+            return View(manager);
         }
 
-        // POST: User/Edit/5
+        // POST: Managers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Mail,Password,Rolee")] Day8 day8)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Manager manager)
         {
-
-            if (id != day8.Id)
+            if (id != manager.Id)
             {
                 return NotFound();
             }
@@ -103,12 +96,12 @@ namespace task8._2.Controllers
             {
                 try
                 {
-                    _context.Update(day8);
+                    _context.Update(manager);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!Day8Exists(day8.Id))
+                    if (!ManagerExists(manager.Id))
                     {
                         return NotFound();
                     }
@@ -119,48 +112,45 @@ namespace task8._2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(day8);
+            return View(manager);
         }
 
-        // GET: User/Delete/5
+        // GET: Managers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-
-
             if (id == null)
             {
                 return NotFound();
             }
 
-            var day8 = await _context.Day8s
+            var manager = await _context.Managers
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (day8 == null)
+            if (manager == null)
             {
                 return NotFound();
             }
 
-            return View(day8);
+            return View(manager);
         }
 
-        // POST: User/Delete/5
+        // POST: Managers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-
-            var day8 = await _context.Day8s.FindAsync(id);
-            if (day8 != null)
+            var manager = await _context.Managers.FindAsync(id);
+            if (manager != null)
             {
-                _context.Day8s.Remove(day8);
+                _context.Managers.Remove(manager);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool Day8Exists(int id)
+        private bool ManagerExists(int id)
         {
-            return _context.Day8s.Any(e => e.Id == id);
+            return _context.Managers.Any(e => e.Id == id);
         }
     }
 }
